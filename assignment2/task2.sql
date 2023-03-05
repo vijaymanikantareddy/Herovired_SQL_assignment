@@ -19,3 +19,12 @@ WHERE FIRST_NAME LIKE '_____h';
 SELECT * FROM Worker 
 WHERE year(JOINING_DATE) = 2014 
 AND month(JOINING_DATE) = 2;
+
+
+/* Q-12. Write an SQL query to fetch worker names with salaries >= 50000 and <= 100000. */
+
+SELECT CONCAT(FIRST_NAME,' ',LAST_NAME) As Worker_Name, Salary
+FROM Worker 
+WHERE WORKER_ID IN 
+(SELECT WORKER_ID FROM Worker 
+WHERE Salary BETWEEN 50000 AND 100000);
