@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulations</title>
+</head>
+
+<body>
+    <p id="para">This is a Paragraph</p>
+    <button id="bt">Click Me</button>
+    <br><br>
+
+    <br><br>
+    <p id="inputpara">Text in the Paragraph</p>
+    <input id="input1">
+    <button id="inputbutton">Click Here</button>
+
+    <ol>
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>JavaScript</li>
+    </ol>
+</body>
+<script>
+    let a = "5+8+70*8/5";
+    console.log(eval(a));
+    let pa = document.getElementById("para");
+    pa.addEventListener("mouseover", function () {
+        pa.style.color = "red";
+    })
+    pa.addEventListener("mouseout", function () {
+        pa.style.color = "black";
+    })
+
+    let bt = document.getElementById("bt");
+    let st = bt.innerText;
+    bt.addEventListener("mouseover", function () {
+        bt.innerHTML = "Overed";
+    })
+
+    bt.addEventListener("mouseout", function () {
+        bt.innerHTML = st;
+    })
+
+    let ip = document.getElementById("inputpara");
+    let inp = document.getElementById('input1');
+    let ibutton = document.getElementById("inputbutton");
+    ibutton.addEventListener("click", function () {
+        inp.setAttribute("value", ip.innerHTML);
+    })
+
+    let elements = document.querySelectorAll('li');
+    elements.forEach((item) => {
+        item.addEventListener('mouseover', function () {
+            item.style.fontWeight = "bold";
+            item.style.color = "red";
+        })
+        item.addEventListener('mouseout', function () {
+            item.style.color = "black";
+            item.style.fontWeight = "normal";
+        })
+    })
+</script>
+
+</html>
