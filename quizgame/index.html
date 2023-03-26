@@ -1,2 +1,186 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <style>
+        body {
+            height: 380px;
+            background: rgba(0, 255, 255, 0.868);
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quzhead {
+            padding: 4rem;
+        }
+
+        h1 {
+            padding: 1px;
+            text-align: center;
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+
+        }
+
+        button {
+            background-color: #4427fd;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #fff;
+            border-radius: 100%;
+            display: block;
+            cursor: pointer;
+            margin-left: 35%;
+            padding: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="Quiz-container" id="quiz">
+        <div class="quzhead" style=" border-radius: 5%; margin-top: 50px;">
+            <h1 id="ques"></h1>
+            <ul>
+                <li>
+                    <input class="option" type="radio" name="option" id="a">
+                    <label for="a" id="optionA">Option A</label>
+                </li>
+                <li>
+                    <input class="option" type="radio" name="option" id="b">
+                    <label for="b" id="optionB">Option B</label>
+                </li>
+                <li>
+                    <input class="option" type="radio" name="option" id="c">
+                    <label for="c" id="optionC">Option C</label>
+                </li>
+                <li>
+                    <input class="option" type="radio" name="option" id="d">
+                    <label for="d" id="optionD">Option D</label>
+                </li>
+            </ul>
+        </div>
+        <button id="submit">SUBMIT</button>
+    </div>
+
+    <script>
+        let data = [
+            {
+                ques: "What is this month name?",
+                a: "March",
+                b: "April",
+                c: "May",
+                d: "June",
+                correct: "a",
+            },
+            {
+                ques: "What HTML Full form?",
+                a: "HyperText Markup Language",
+                b: "HyperText Markdown Language",
+                c: "HyperText Machine Language",
+                d: "HyperText Modern Language",
+                correct: "a",
+            },
+            {
+                ques: "What is the extension for html file?",
+                a: ".htmlfile",
+                b: ".html",
+                c: ".hmtl",
+                d: ".hltm",
+                correct: "b",
+            },
+            {
+                ques: "what is the extension for CSS file",
+                a: ".cs",
+                b: ".cssfile",
+                c: ".css",
+                d: ".csss",
+                correct: "c",
+            },
+            {
+                ques: "what is the extension for Javascript file?",
+                a: ".js",
+                b: ".javascript",
+                c: ".jsfile",
+                d: ".java",
+                correct: "a",
+            },
+        ]
+        let quiz = document.getElementById("quiz");
+        let optionElement = document.querySelectorAll(".option");
+        let quesE1 = document.getElementById("ques");
+        let optionA = document.getElementById("optionA");
+        let optionB = document.getElementById("optionB");
+        let optionC = document.getElementById("optionC");
+        let optionD = document.getElementById("optionD");
+
+        let submitButton = document.getElementById("submit");
+
+        let current = 0
+        let score = 0
+
+        loadQuiz()
+
+        function loadQuiz() {
+            deselectoptions()
+            let currentData = data[current]
+            quesE1.innerText = currentData.ques;
+            optionA.innerText = currentData.a;
+            optionB.innerText = currentData.b;
+            optionC.innerText = currentData.c;
+            optionD.innerText = currentData.d;
+
+        }
+        function deselectoptions() {
+            optionElement.forEach((optionEL) => (
+                optionEL.checked = false
+            ))
+        }
+        function getSelected() {
+            let option
+            optionElement.forEach((element) => {
+                if (element.checked) {
+                    option = element.id;
+                }
+            })
+            return option
+        }
+
+        submitButton.addEventListener("click", () => {
+            let option = getSelected();
+
+            if (option) {
+                if (option === data[current].correct) {
+                    score++
+                }
+                current++
+
+                if (current < data.length) {
+                    loadQuiz()
+                }
+                else {
+                    quiz.innerHTML = `<h1>Your score is ${score}/${data.length} </h1>
+           
+           <button onclick="location.reload()">Reload Quiz</button>
+           `
+                }
+            }
+        })
+    </script>
+</body>
+
 </html>
