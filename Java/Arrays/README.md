@@ -25,6 +25,8 @@ Average of all array elements: 42
 Total number of array elements: 10
 
 
+
+/*********************************************************************************/
 Question 2:   Reverse the Array elements
 
 Skill Mapping: Basic
@@ -38,6 +40,9 @@ Sample input : arrNum = {31, 42, 25, 21, 56,  61, 13, 45, 76, 55}
 Output : The elements in reverse order - 
 
 55, 76, 45, 13, 61, 56, 21, 25, 42, 31
+
+
+/*********************************************************************************/
 
 Question 3: Sort the Array elements in ascending order and descending order
 
@@ -54,6 +59,10 @@ Output : The elements in ascending order: 12, 21, 23, 32, 44
 The elements in descending order: 44, 32, 23, 21, 12
 
 
+
+
+
+/*********************************************************************************/
 Question 4:   Find the largest Prime number in given Array 
 
 Skill Mapping: Basic
@@ -66,6 +75,8 @@ Sample input : arrNum = {2, 29, 51, 8, 4}
 Output : The Largest Prime number in given array: 29 
 
 
+
+/*********************************************************************************/
 Question 5:   Move all the ones at the end of an Array 
 
 Skill Mapping: Basic
@@ -78,6 +89,8 @@ Sample input : arrNum = {3, 1, 4, 1, 2, 1, 8, 3, 2, 1}
 Output : Array elements after moving Ones to end: 3, 4, 2, 8, 3, 2, 1, 1, 1, 1
 
 
+
+/*********************************************************************************/
 Question 6:   Find how many elements from Array A are present in the other Array B. and Print their frequencies.
 
 Skill Mapping: Basic
